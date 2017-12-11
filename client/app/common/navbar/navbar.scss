@@ -1,0 +1,20 @@
+@import '../common';
+
+.navbar {
+  background-color: $primaryColor;
+  padding: 0.5rem;
+
+  .nav-links,
+  .logo {
+    display: inline-block;
+  }
+
+  .logo {
+    color: $lightTextColor;
+    margin-right: 50%;
+  }
+
+  .nav-links {
+    color: $lightTextColor;
+  }
+}
