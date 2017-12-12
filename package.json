@@ -7,6 +7,7 @@
     "@uirouter/angularjs": "^1.0.10",
     "angular": "^1.5.0",
     "handsontable-pro": "^1.15.0",
+    "ngstorage": "^0.3.11",
     "normalize.css": "^7.0.0"
   },
   "devDependencies": {
