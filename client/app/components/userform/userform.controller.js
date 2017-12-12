@@ -1,8 +1,7 @@
 class UserformController {
   constructor() {
     this.name = 'userform';
-    this.vm = {};
-    this.vm.user = {
+    this.user = {
       name: '',
       email: '',
       phone: '',
