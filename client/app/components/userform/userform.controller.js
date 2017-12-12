@@ -12,16 +12,12 @@ class UserformController {
       message: '',
     };
     this.localStorage = $localStorage;
-    this.storage = $localStorage.$default({
-      counter: 42,
-    });
-    this.services.dataHandler.printSomthing();
   }
   submit(user) {
-    console.log('presiono enviar', user);
+    this.services.dataHandler.saveUserInLocalStorage(user, this.localStorage);
   }
   getLocalStorage() {
-    console.log('presiono get de local storage', this.localStorage.counter);
+    console.log('presiono get de local storage', this.localStorage.users);
   }
 }
 
