@@ -11,13 +11,9 @@ class HandsontableController {
   }
 
   $onInit() {
-    let users = this.services.dataHandler.parseFromLocalstorageToHandsonTable();
-    const usersData = [];
-     usersData.push(this.tableHeader);
-     for(let i=0; i<users.length; i++){
-       usersData.push(users[i]);
-     }
-
+    let usersData = [];
+    usersData.push(this.tableHeader);
+    usersData = this.services.dataHandler.parseFromLocalstorageToHandsonTable(usersData);
     const container = document.getElementById('usersTable');
     const usersTable = new Handsontable(container, {
       data: usersData,

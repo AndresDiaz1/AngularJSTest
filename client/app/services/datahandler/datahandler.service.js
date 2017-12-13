@@ -17,14 +17,13 @@ class DataHandlerService {
   getUSersFromLocalStorage() {
     return this.localStorage.users;
   }
-  parseFromLocalstorageToHandsonTable() {
+  parseFromLocalstorageToHandsonTable(usersData) {
     let users = this.getUSersFromLocalStorage();
-    let usersArray = [];
+    let usersArray = usersData;
     for (let i=0; i < users.length; i++){
       usersArray.push([users[i].name, users[i].email, users[i].phone, users[i].message]);
     }
     return usersArray;
-    console.log("El arreglo de usuarios", usersArray);
   }
 }
 
