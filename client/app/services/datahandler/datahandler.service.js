@@ -28,6 +28,11 @@ class DataHandlerService {
     }
     return usersArray;
   }
+  setSelectedRowData(index,selectedUserData){
+    console.log("desde el servicio llega el indice", index);
+    console.log("desde el servicio llega la data", selectedUserData);
+    
+  }
 }
 
 export default DataHandlerService;

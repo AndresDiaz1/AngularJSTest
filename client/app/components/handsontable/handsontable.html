@@ -1,6 +1,6 @@
 <div>
   <h1>{{ $ctrl.name }}</h1>
-  <div ng-click="$ctrl.llamar()" id="usersTable"></div>
+  <div ng-click="$ctrl.llamar(r)" id="usersTable"></div>
 </div>
 <h1 ng-if="!$ctrl.thereAreUsers">No hay usuarios registrados, ve al formulario</h1>
-<button>{{ $ctrl.hasMadeSelection }}</button>
+<button ng-if="$ctrl.hasMadeSelection">Editar elemento seleccionado</button>
