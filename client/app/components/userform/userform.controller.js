@@ -33,11 +33,21 @@ class UserformController {
 
   submit(user) {
     this.services.dataHandler.saveUserInLocalStorage(user);
+    this.resetForm();
   }
 
   update(user) {
     this.services.dataHandler.updateUserInLocalStorage(user);
     this.services.dataHandler.setSelectedRowData(null, null);
+    this.resetForm();
+  }
+  resetForm() {
+    this.user = {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    };
   }
 }
 
