@@ -8,10 +8,12 @@ class HandsontableController {
       dataHandler: DataHandler,
     };
     this.tableHeader = ['Nombre', 'Email', 'Teléfono', 'Mensaje'];
+    this.thereAreUsers = false;
   }
 
   $onInit() {
     if (this.services.dataHandler.thereAreUsers()) {
+      this.thereAreUsers = true;
       this.createHandsonTable();
     }
   }
