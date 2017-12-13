@@ -12,11 +12,28 @@ class UserformController {
       message: '',
     };
   }
+
+  $onInit() {
+    if (this.isEditing()) {
+      this.setUserDataInForm();
+      console.log("El usuario que eligio es", this.user);
+    }
+  }
+
+  isEditing() {
+    return this.services.dataHandler.getSelectedRow() != null;
+  }
+
+  setUserDataInForm() {
+    const userData = this.services.dataHandler.getSelectedUserData();
+    this.user.name = userData[0];
+    this.user.email = userData[1];
+    this.user.phone = userData[2];
+    this.user.message = userData[3];
+  }
+
   submit(user) {
     this.services.dataHandler.saveUserInLocalStorage(user);
-  }
-  getLocalStorage() {
-    console.log('Los usuarios son ', this.services.dataHandler.getUSersFromLocalStorage());
   }
 }
 

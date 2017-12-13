@@ -4,6 +4,8 @@ class DataHandlerService {
   constructor($localStorage) {
     this.localStorage = $localStorage;
     this.users = this.thereAreUsers() ? this.getUSersFromLocalStorage() : [];
+    this.selectedRow = null;
+    this.selectedUserData = null;
   }
   saveUserInLocalStorage(user) {
     this.users.push({
@@ -21,17 +23,22 @@ class DataHandlerService {
     return this.getUSersFromLocalStorage() !== undefined;
   }
   parseFromLocalstorageToHandsonTable(usersData) {
-    let users = this.getUSersFromLocalStorage();
-    let usersArray = usersData;
-    for (let i=0; i < users.length; i++){
+    const users = this.getUSersFromLocalStorage();
+    const usersArray = usersData;
+    for (let i = 0; i < users.length; i++) {
       usersArray.push([users[i].name, users[i].email, users[i].phone, users[i].message]);
     }
     return usersArray;
   }
-  setSelectedRowData(index,selectedUserData){
-    console.log("desde el servicio llega el indice", index);
-    console.log("desde el servicio llega la data", selectedUserData);
-    
+  setSelectedRowData(index, selectedUserData) {
+    this.selectedRow = index;
+    this.selectedUserData = selectedUserData;
+  }
+  getSelectedRow() {
+    return this.selectedRow;
+  }
+  getSelectedUserData() {
+    return this.selectedUserData;
   }
 }
 

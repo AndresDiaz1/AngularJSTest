@@ -32,14 +32,12 @@ class HandsontableController {
       dropdownMenu: true,
     });
 
-    usersTable.addHook('afterSelection',(r)=>{
-      if(r!=undefined){
+    usersTable.addHook('afterSelection', (r) => {
+      if (r != undefined){
         this.hasMadeSelection=true;
-        this.services.dataHandler.setSelectedRowData(r,usersTable.getDataAtRow(r));
+        this.services.dataHandler.setSelectedRowData(r, usersTable.getDataAtRow(r));
       }
     });
-
-
   }
 }
 

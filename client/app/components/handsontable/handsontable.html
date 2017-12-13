@@ -3,4 +3,4 @@
   <div ng-click="$ctrl.llamar(r)" id="usersTable"></div>
 </div>
 <h1 ng-if="!$ctrl.thereAreUsers">No hay usuarios registrados, ve al formulario</h1>
-<button ng-if="$ctrl.hasMadeSelection">Editar elemento seleccionado</button>
+<button ng-if="$ctrl.hasMadeSelection"><a ui-sref="userform">Editar elemento seleccionado</a></button>
