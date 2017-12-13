@@ -38,15 +38,16 @@ class UserformController {
   submit() {
     this.user = this.getDataFromForm();
     this.services.dataHandler.saveUserInLocalStorage(this.user);
+    this.resetForm();
   }
+
   update() {
-    let usersList = this.services.dataHandler.getUSersFromLocalStorage();
-    let updateIndex = this.services.dataHandler.getSelectedRow();
-    let userUpdated = this.getDataFromForm();
-    usersList[updateIndex - 1] = userUpdated;
-    this.services.dataHandler.updateUserInLocalStorage(usersList);
+    const userUpdated = this.getDataFromForm();
+    this.services.dataHandler.updateUserInLocalStorage(userUpdated);
     this.services.dataHandler.setSelectedRowData(null, null);
+    this.resetForm();
   }
+
   getDataFromForm() {
     return {
       name: document.getElementById('Name').value,
@@ -55,6 +56,14 @@ class UserformController {
       message: document.getElementById('message').value,
     };
   }
+
+  resetForm() {
+    document.getElementById('Name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('message').value = '';
+  }
 }
+
 
 export default UserformController;

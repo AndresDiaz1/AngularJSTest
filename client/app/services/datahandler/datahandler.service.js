@@ -40,7 +40,10 @@ class DataHandlerService {
   getSelectedUserData() {
     return this.selectedUserData;
   }
-  updateUserInLocalStorage(usersList) {
+  updateUserInLocalStorage(userUpdatedData) {
+    const usersList = this.getUSersFromLocalStorage();
+    const updateIndex = this.getSelectedRow();
+    usersList[updateIndex - 1] = userUpdatedData;
     this.localStorage.users = usersList;
   }
 }
