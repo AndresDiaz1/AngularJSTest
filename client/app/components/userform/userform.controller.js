@@ -36,24 +36,24 @@ class UserformController {
   }
 
   submit() {
-    this.user.name = document.getElementById('Name').value;
-    this.user.email = document.getElementById('email').value;
-    this.user.phone = document.getElementById('phone').value;
-    this.user.message = document.getElementById('message').value;
+    this.user = this.getDataFromForm();
     this.services.dataHandler.saveUserInLocalStorage(this.user);
   }
   update() {
     let usersList = this.services.dataHandler.getUSersFromLocalStorage();
     let updateIndex = this.services.dataHandler.getSelectedRow();
-    let userUpdated = {
+    let userUpdated = this.getDataFromForm();
+    usersList[updateIndex - 1] = userUpdated;
+    this.services.dataHandler.updateUserInLocalStorage(usersList);
+    this.services.dataHandler.setSelectedRowData(null, null);
+  }
+  getDataFromForm() {
+    return {
       name: document.getElementById('Name').value,
       email: document.getElementById('email').value,
       phone: document.getElementById('phone').value,
       message: document.getElementById('message').value,
-    }
-    usersList[updateIndex - 1] = userUpdated;
-    this.services.dataHandler.updateUserInLocalStorage(usersList);
-    this.services.dataHandler.setSelectedRowData(null,null);
+    };
   }
 }
 
