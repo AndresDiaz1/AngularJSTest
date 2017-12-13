@@ -2,8 +2,8 @@
 class DataHandlerService {
   /* @ngInject */
   constructor($localStorage) {
-    this.users = [];
     this.localStorage = $localStorage;
+    this.users = this.thereAreUsers() ? this.getUSersFromLocalStorage() : [];
   }
   saveUserInLocalStorage(user) {
     this.users.push({
@@ -16,6 +16,9 @@ class DataHandlerService {
   }
   getUSersFromLocalStorage() {
     return this.localStorage.users;
+  }
+  thereAreUsers() {
+    return this.getUSersFromLocalStorage() !== undefined;
   }
   parseFromLocalstorageToHandsonTable(usersData) {
     let users = this.getUSersFromLocalStorage();

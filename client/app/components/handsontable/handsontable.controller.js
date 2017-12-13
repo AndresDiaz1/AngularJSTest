@@ -11,6 +11,11 @@ class HandsontableController {
   }
 
   $onInit() {
+    if (this.services.dataHandler.thereAreUsers()) {
+      this.createHandsonTable();
+    }
+  }
+  createHandsonTable() {
     let usersData = [];
     usersData.push(this.tableHeader);
     usersData = this.services.dataHandler.parseFromLocalstorageToHandsonTable(usersData);
