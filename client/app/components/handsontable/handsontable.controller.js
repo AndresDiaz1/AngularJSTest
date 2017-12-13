@@ -10,7 +10,6 @@ class HandsontableController {
     this.tableHeader = ['Nombre', 'Email', 'Teléfono', 'Mensaje'];
     this.thereAreUsers = false;
     this.hasMadeSelection = false;
-    this.Idex=0;
   }
   $onInit() {
     this.hasMadeSelection = false;
@@ -21,15 +20,12 @@ class HandsontableController {
   }
   createHandsonTable() {
     let usersData = [];
-    usersData.push(this.tableHeader);
     usersData = this.services.dataHandler.parseFromLocalstorageToHandsonTable(usersData);
     const container = document.getElementById('usersTable');
     let usersTable = new Handsontable(container, {
       data: usersData,
       rowHeaders: true,
-      colHeaders: true,
-      filters: true,
-      dropdownMenu: true,
+      colHeaders: this.tableHeader,
     });
 
     usersTable.addHook('afterSelection', (r) => {

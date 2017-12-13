@@ -43,7 +43,7 @@ class DataHandlerService {
   updateUserInLocalStorage(userUpdatedData) {
     const usersList = this.getUSersFromLocalStorage();
     const updateIndex = this.getSelectedRow();
-    usersList[updateIndex - 1] = userUpdatedData;
+    usersList[updateIndex] = userUpdatedData;
     this.localStorage.users = usersList;
   }
 }
