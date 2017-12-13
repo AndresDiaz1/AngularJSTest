@@ -26,7 +26,8 @@
     <input type="text" class="form-control" id="message" placeholder="Mensaje">
   </div>
 
-  <button type="submit" class="btn btn-default"  ng-click="$ctrl.submit(user)">Enviar</button>
+  <button ng-if="!$ctrl.isEditing()" type="submit" class="btn btn-default"  ng-click="$ctrl.submit()">Enviar</button>
+  <button ng-if="$ctrl.isEditing()" type="submit" class="btn btn-default"  ng-click="$ctrl.update()">Actualizar</button>
 
 
 </form>
