@@ -5,12 +5,8 @@ class UserformController {
     this.services = {
       dataHandler: DataHandler,
     };
-    this.user = {
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-    };
+    this.user = {};
+    this.resetForm();
   }
 
   $onInit() {
