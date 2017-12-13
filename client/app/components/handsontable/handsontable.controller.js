@@ -19,6 +19,10 @@ class HandsontableController {
       dropdownMenu: true,
     });
   }
+
+  $onInit() {
+    console.log('entro al on init');
+  }
 }
 
 export default HandsontableController;

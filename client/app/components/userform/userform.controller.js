@@ -1,6 +1,6 @@
 class UserformController {
   /* @ngInject */
-  constructor(DataHandler, $localStorage) {
+  constructor(DataHandler) {
     this.name = 'userform';
     this.services = {
       dataHandler: DataHandler,
@@ -11,13 +11,12 @@ class UserformController {
       phone: '',
       message: '',
     };
-    this.localStorage = $localStorage;
   }
   submit(user) {
-    this.services.dataHandler.saveUserInLocalStorage(user, this.localStorage);
+    this.services.dataHandler.saveUserInLocalStorage(user);
   }
   getLocalStorage() {
-    console.log('presiono get de local storage', this.localStorage.users);
+    console.log('Los usuarios son ', this.services.dataHandler.getUSersFromLocalStorage());
   }
 }
 

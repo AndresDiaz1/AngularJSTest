@@ -1,18 +1,21 @@
 
 class DataHandlerService {
-  constructor() {
+  /* @ngInject */
+  constructor($localStorage) {
     this.users = [];
+    this.localStorage = $localStorage;
   }
-  saveUserInLocalStorage(user, localStorage) {
+  saveUserInLocalStorage(user) {
     this.users.push({
       name: user.name,
       email: user.email,
       phone: user.phone,
       message: user.message,
     });
-    console.log('Los usuarios son', this.users);
-    localStorage.users = this.users;
-    console.log('imprime desde el servicio');
+    this.localStorage.users = this.users;
+  }
+  getUSersFromLocalStorage() {
+    return this.localStorage.users;
   }
 }
 
