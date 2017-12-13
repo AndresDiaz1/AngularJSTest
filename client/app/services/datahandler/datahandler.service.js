@@ -40,6 +40,12 @@ class DataHandlerService {
   getSelectedUserData() {
     return this.selectedUserData;
   }
+  updateUserInLocalStorage(userUpdatedData) {
+    const usersList = this.getUSersFromLocalStorage();
+    const updateIndex = this.getSelectedRow();
+    usersList[updateIndex] = userUpdatedData;
+    this.localStorage.users = usersList;
+  }
 }
 
 export default DataHandlerService;

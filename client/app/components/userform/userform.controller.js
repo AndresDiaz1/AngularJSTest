@@ -16,7 +16,6 @@ class UserformController {
   $onInit() {
     if (this.isEditing()) {
       this.setUserDataInForm();
-      console.log("El usuario que eligio es", this.user);
     }
   }
 
@@ -34,6 +33,11 @@ class UserformController {
 
   submit(user) {
     this.services.dataHandler.saveUserInLocalStorage(user);
+  }
+
+  update(user) {
+    this.services.dataHandler.updateUserInLocalStorage(user);
+    this.services.dataHandler.setSelectedRowData(null, null);
   }
 }
 
