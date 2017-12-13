@@ -28,6 +28,10 @@ class HandsontableController {
       colHeaders: true,
       filters: true,
       dropdownMenu: true,
+      afterSelection: function(row,col) {
+        let data = this.getDataAtRow(row);
+        console.log('la data', data);
+      },
     });
   }
 }
