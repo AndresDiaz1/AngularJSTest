@@ -25,6 +25,24 @@ describe('Userform', () => {
 
       expect(controller.name).toBeDefined();
     });
+
+    it('should reset user when calls resetForm method',()=>{
+      const controller = makeController();
+      const emptyUser = {
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      };
+      controller.user = {
+        name: 'test',
+        email: 'test@test.com',
+        phone: '123',
+        message: 'test message',
+      };
+      controller.resetForm();
+      expect(controller.user).toEqual(emptyUser);
+    });
   });
 
   describe('Template', () => {
