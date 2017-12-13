@@ -30,10 +30,20 @@ class UserformController {
     this.user.email = userData[1];
     this.user.phone = userData[2];
     this.user.message = userData[3];
+
+    document.getElementById('Name').value = this.user.name;
+    document.getElementById('email').value = this.user.email;
+    document.getElementById('phone').value = this.user.phone;
+    document.getElementById('message').value = this.user.message;
+
   }
 
   submit(user) {
-    this.services.dataHandler.saveUserInLocalStorage(user);
+    this.user.name = document.getElementById('Name').value;
+    this.user.email = document.getElementById('email').value;
+    this.user.phone = document.getElementById('phone').value;
+    this.user.message = document.getElementById('message').value;
+    this.services.dataHandler.saveUserInLocalStorage(this.user);
   }
 }
 
